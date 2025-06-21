@@ -1,4 +1,4 @@
-from collections import 
+from collections import Counter
 
 class CheckoutSolution:
 
@@ -21,6 +21,10 @@ class CheckoutSolution:
             return -1
 
         total = 0
+        counter = Counter(skus)
+
+        for skus, count in counter.items():
+
 
 
 
