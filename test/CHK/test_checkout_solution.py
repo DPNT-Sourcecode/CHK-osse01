@@ -27,3 +27,11 @@ class TestCheckoutSolution:
 
         #test two offers
         assert basket.checkout("AAABBCD") == 130 + 45 + 20 + 15
+
+        #E offers
+        assert basket.checkout("EEB") == 80
+        assert basket.checkout("EEBB") == 110
+        assert basket.checkout("EEBBB") == 110
+        assert basket.checkout("EEEEBB") == 160
+
+
