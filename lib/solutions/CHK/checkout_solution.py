@@ -26,13 +26,21 @@ class CheckoutSolution:
         if not skus.isalpha():
             return -1
 
-        total = 0
-        counter = Counter(skus)
+        items = {}
 
-        #E offers
-        if "E" in counter and "B" in counter:
-            free_Bs = counter["E"] // 2
-            counter["B"] = max(0, counter["B"] - free_Bs)
+        for sku in skus:
+            if sku not in self.prices:
+                return -1
+
+            #count our items, add one for the first ime
+            items[sku] = items.get(sku, 0) + 1
+
+        total = 0
+
+        #E offer
+        if "E" in items and "B" in items:
+            free_bs = counter["E"] // 2
+            counter["B"] = max(0, counter["B"] - free_bs)
 
         for sku, count in counter.items():
             if sku not in self.prices:
@@ -48,6 +56,7 @@ class CheckoutSolution:
                 total += count * self.prices[sku]
 
         return total
+
 
 
 
