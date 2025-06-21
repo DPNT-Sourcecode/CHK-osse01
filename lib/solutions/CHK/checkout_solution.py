@@ -1,5 +1,3 @@
-from collections import Counter
-
 class CheckoutSolution:
 
     def __init__(self):
@@ -9,13 +7,6 @@ class CheckoutSolution:
             "C": 20,
             "D": 15,
             "E": 40
-        }
-
-        self.offers = {
-            "A_5_offer": (5, 200),
-            "A_3_offer": (3, 130),
-            "B": (2, 45)
-
         }
 
     # skus = unicode string
@@ -53,22 +44,15 @@ class CheckoutSolution:
         #B discount
         count_b = items.get("B", 0)
         total += (count_b // 2) * 45
-        count_b %
+        count_b %= 2
+        total += count_b * self.prices["B"]
 
-        for sku, count in counter.items():
-            if sku not in self.prices:
-                return -1
-
-            if sku in self.offers:
-                qty, new_price = self.offers[sku]
-                num_of_offers = count // qty
-                remainder = count % qty
-                total += num_of_offers * new_price
-                total += remainder * self.prices[sku]
-            else:
-                total += count * self.prices[sku]
+        #the rest
+        for sku in "CDE":
+            total += items.get(sku, 0) * self.prices[sku]
 
         return total
+
 
 
 
