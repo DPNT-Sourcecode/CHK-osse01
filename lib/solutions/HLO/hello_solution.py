@@ -4,4 +4,3 @@ class HelloSolution:
         msg = f"Hello, {friend_name}!"
 
         return msg
-
