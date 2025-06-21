@@ -6,6 +6,7 @@ class TestCheckoutSolution:
         basket = CheckoutSolution()
 
         #test indv items
+        assert basket.checkout("") == 0
         assert basket.checkout("A") == 50
         assert basket.checkout("B") == 30
         assert basket.checkout("C") == 20

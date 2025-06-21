@@ -17,11 +17,11 @@ class CheckoutSolution:
 
     # skus = unicode string
     def checkout(self, skus) -> int:
-        if not skus.isalpha():
-            return -1
-
         if not skus:
             return 0
+
+        if not skus.isalpha():
+            return -1
 
         total = 0
         counter = Counter(skus)
@@ -40,6 +40,7 @@ class CheckoutSolution:
                 total += count * self.prices[sku]
 
         return total
+
 
 
 
