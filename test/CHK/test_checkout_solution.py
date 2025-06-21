@@ -45,5 +45,3 @@ class TestCheckoutSolution:
         assert basket.checkout("FFFFFF") == 40
 
 
-
-
