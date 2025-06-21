@@ -20,6 +20,9 @@ class CheckoutSolution:
         if not skus.isalpha():
             return -1
 
+        if not skus:
+            return 0
+
         total = 0
         counter = Counter(skus)
 
@@ -37,6 +40,7 @@ class CheckoutSolution:
                 total += count * self.prices[sku]
 
         return total
+
 
 
 
