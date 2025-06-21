@@ -53,11 +53,13 @@ class CheckoutSolution:
         for purchased_item, (free_item, offer_qty) in self.free_items.items():
             if purchased_item in items:
                 #i.e. 6 // 3 = 2 free items
-                free_qty = items[purchased_item] // offer_qty
                 if free_item in items:
                     if purchased_item == free_item:
-                        items[free_item] -= free_qty
+                        size = offer_qty + 1 #how many you actually need to get one free and so
+                        free = items[purchased_item] // size
+                        items[purchased_item] -= free
                     else:
+                        free_qty = items[purchased_item] // offer_qty
                         items[free_item] = max(0, items[free_item] - free_qty)
 
     #Apply discounted items
@@ -86,6 +88,7 @@ class CheckoutSolution:
         total = self.apply_discount(items)
 
         return total
+
 
 
 
