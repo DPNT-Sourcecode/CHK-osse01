@@ -37,5 +37,13 @@ class TestCheckoutSolution:
         assert basket.checkout("EEBBB") == 125
         assert basket.checkout("EEEEBB") == 160
 
+        #F offers
+        assert basket.checkout("F") == 10
+        assert basket.checkout("FF") == 20
+        assert basket.checkout("FFF") == 20
+        assert basket.checkout("FFFF") == 30
+        assert basket.checkout("FFFFFF") == 40
+
+
 
 

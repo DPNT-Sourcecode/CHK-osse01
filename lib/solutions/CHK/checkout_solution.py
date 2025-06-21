@@ -6,7 +6,8 @@ class CheckoutSolution:
             "B": 30,
             "C": 20,
             "D": 15,
-            "E": 40
+            "E": 40,
+            "F": 10
         }
 
     # skus = unicode string
@@ -47,11 +48,18 @@ class CheckoutSolution:
         count_b %= 2
         total += count_b * self.prices["B"]
 
+        #F discount
+        if "F" in items:
+            count_f = items["F"]
+            payable_fs = count_f - (count_f // 3)
+            total += payable_fs * self.prices["F"]
+
         #the rest
         for sku in "CDE":
             total += items.get(sku, 0) * self.prices[sku]
 
         return total
+
 
 
 
