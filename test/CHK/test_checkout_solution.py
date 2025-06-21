@@ -5,7 +5,7 @@ class TestCheckoutSolution:
     def test_indv_cases(self):
         basket = CheckoutSolution()
 
-        assert basket.checkout("UUUU") == 140
+        assert basket.checkout("UUUU") == 120
 
     def test_multiple_basket_cases(self):
         basket = CheckoutSolution()
@@ -99,10 +99,11 @@ class TestCheckoutSolution:
         assert basket.checkout("RRRQ") == 150
 
         #U offers
-        assert basket.checkout("UUUU") == 140
+        assert basket.checkout("UUUU") == 120
 
         #V offers
         assert basket.checkout("VV") == 90
         assert basket.checkout("VVV") == 130
+
 
 
