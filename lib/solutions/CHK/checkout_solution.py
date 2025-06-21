@@ -52,14 +52,13 @@ class CheckoutSolution:
     def apply_free_items(self, items):
         for purchased_item, (free_item, offer_qty) in self.free_items.items():
             if purchased_item in items:
-                if free_item in items:
-                    if purchased_item == free_item:
-                        size = offer_qty + 1 #how many you actually need to get one free and so
-                        free = items[purchased_item] // size
-                        items[purchased_item] -= free
-                    else:
-                        free_qty = items[purchased_item] // offer_qty
-                        items[free_item] = max(0, items[free_item] - free_qty)
+                if purchased_item == free_item:
+                    size = offer_qty + 1 #how many you actually need to get one free and so
+                    free = items[purchased_item] // size
+                    items[purchased_item] -= free
+                elif free_item in items:
+                    free_qty = items[purchased_item] // offer_qty
+                    items[free_item] = max(0, items[free_item] - free_qty)
 
     #Apply discounted items
     def apply_discount(self, items):
@@ -87,6 +86,7 @@ class CheckoutSolution:
         total = self.apply_discount(items)
 
         return total
+
 
 
 
