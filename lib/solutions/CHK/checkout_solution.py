@@ -2,12 +2,10 @@ class CheckoutSolution:
 
     def __init__(self):
         self.prices = {
-            "A": 50,
-            "B": 30,
-            "C": 20,
-            "D": 15,
-            "E": 40,
-            "F": 10
+            "A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10,
+            "G": 20, "H": 10, "I": 35, "J": 60, "": 40, "F": 10,
+            "A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10,
+            "A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10,
         }
 
     # skus = unicode string
@@ -59,6 +57,7 @@ class CheckoutSolution:
             total += items.get(sku, 0) * self.prices[sku]
 
         return total
+
 
 
 

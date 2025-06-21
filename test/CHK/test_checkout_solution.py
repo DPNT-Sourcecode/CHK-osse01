@@ -5,12 +5,38 @@ class TestCheckoutSolution:
     def test_multiple_basket_cases(self):
         basket = CheckoutSolution()
 
+        #neg check
+        assert basket.checkout("-1") == -1
+
         #test indv items
         assert basket.checkout("") == 0
         assert basket.checkout("A") == 50
         assert basket.checkout("B") == 30
         assert basket.checkout("C") == 20
         assert basket.checkout("D") == 15
+        assert basket.checkout("E") == 15
+        assert basket.checkout("F") == 15
+        assert basket.checkout("G") == 15
+        assert basket.checkout("H") == 15
+        assert basket.checkout("I") == 15
+        assert basket.checkout("J") == 15
+        assert basket.checkout("K") == 15
+        assert basket.checkout("L") == 15
+        assert basket.checkout("M") == 15
+        assert basket.checkout("N") == 15
+        assert basket.checkout("O") == 15
+        assert basket.checkout("P") == 15
+        assert basket.checkout("Q") == 15
+        assert basket.checkout("R") == 15
+        assert basket.checkout("S") == 15
+        assert basket.checkout("T") == 15
+        assert basket.checkout("U") == 15
+        assert basket.checkout("V") == 15
+        assert basket.checkout("W") == 15
+        assert basket.checkout("X") == 15
+        assert basket.checkout("Y") == 15
+        assert basket.checkout("Z") == 15
+
 
         #test A offers
         assert basket.checkout("AAA") == 130
@@ -43,5 +69,37 @@ class TestCheckoutSolution:
         assert basket.checkout("FFF") == 20
         assert basket.checkout("FFFF") == 30
         assert basket.checkout("FFFFFF") == 40
+
+        #H offers
+        assert basket.checkout("HHHHH") == 45
+        assert basket.checkout("HHHHHHA") == 45 + 10 + 50
+        assert basket.checkout("HHHHHHHHHHHO") == 80 + 10 + 10
+
+        #K offers
+        assert basket.checkout("KK") == 150
+        assert basket.checkout("KKKK") == 300
+        assert basket.checkout("KKKKA") == 350
+
+        #N offers
+        assert basket.checkout("NNNM") == 120
+        assert basket.checkout("NNNMN") == 160
+        assert basket.checkout("NNNNNM") == 200
+
+        #P offers
+        assert basket.checkout("PPPPP") == 200
+
+        #Q offers
+        assert basket.checkout("QQQ") == 80
+
+        #R offers
+        assert basket.checkout("RRRQ") == 150
+
+        #U offers
+        assert basket.checkout("UUUU") == 140
+
+        #V offers
+        assert basket.checkout("VV") == 90
+        assert basket.checkout("VVV") == 130
+
 
 
