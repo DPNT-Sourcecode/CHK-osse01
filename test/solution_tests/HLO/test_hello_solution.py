@@ -1,5 +1,6 @@
 from lib.solutions.HLO.hello_solution import HelloSolution
 
-class TestHello():
+class TestHelloSolution:
     def test_msg(self):
-        assert HelloSolution.hello("Sam") == "hello to the world"
+        hello_msg = HelloSolution()
+        assert hello_msg.hello("Sam") == "hello to the world"
