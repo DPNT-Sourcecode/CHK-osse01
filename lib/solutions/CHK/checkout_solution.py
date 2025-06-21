@@ -66,7 +66,7 @@ class CheckoutSolution:
 
         for sku, count in items.items():
             if sku in self.discount_items:
-                for qty, discount_price in sorted(self.discount_items[sku]):
+                for qty, discount_price in sorted(self.discount_items[sku], reverse=True):
                     total += (count // qty) * discount_price
                     count %= qty
             total += count * self.prices[sku]
@@ -86,6 +86,7 @@ class CheckoutSolution:
         total = self.apply_discount(items)
 
         return total
+
 
 
 
