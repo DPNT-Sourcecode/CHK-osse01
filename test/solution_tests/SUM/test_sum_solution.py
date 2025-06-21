@@ -8,5 +8,7 @@ class TestSum():
 
     def test_negative_int(self):
         with pytest.raises(Exception):
+            SumSolution().compute(1,99)
             raise Exception("Sorry, number must be between 0 and 100")
+
 
