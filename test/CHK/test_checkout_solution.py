@@ -15,8 +15,9 @@ class TestCheckoutSolution:
         #test A offers
         assert basket.checkout("AAA") == 130
         assert basket.checkout("AAAA") == 180
-        assert basket.checkout("AAAAA") == 230
-        assert basket.checkout("AAAAAA") == 260
+        assert basket.checkout("AAAAA") == 200 #230
+        assert basket.checkout("AAAAAA") == 250 #260
+        assert basket.checkout("AAAAAAA") == 300  # 310
 
         #test B offers
         assert basket.checkout("BB") == 45
@@ -35,6 +36,7 @@ class TestCheckoutSolution:
         assert basket.checkout("EEBB") == 110
         assert basket.checkout("EEBBB") == 125
         assert basket.checkout("EEEEBB") == 160
+
 
 
 

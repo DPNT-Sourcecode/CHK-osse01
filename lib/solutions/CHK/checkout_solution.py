@@ -13,7 +13,9 @@ class CheckoutSolution:
 
         self.offers = {
             "A": (3, 130),
+            "A": (5, 200),
             "B": (2, 45)
+
         }
 
     # skus = unicode string
@@ -46,6 +48,7 @@ class CheckoutSolution:
                 total += count * self.prices[sku]
 
         return total
+
 
 
 
