@@ -23,7 +23,16 @@ class CheckoutSolution:
         total = 0
         counter = Counter(skus)
 
-        for skus, count in counter.items():
+        for sku, count in counter.items():
+            if sku not in self.prices:
+                return -1
+
+            if sku in self.offers:
+                qty, new_price = self.offers[sku]
+                num_of_offers = count // qty
+                remainder = count % qty
+
+
 
 
 
