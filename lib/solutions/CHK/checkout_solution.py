@@ -12,8 +12,8 @@ class CheckoutSolution:
         }
 
         self.offers = {
-            "A": (3, 130),
-            "A": (5, 200),
+            "A_5_offer": (5, 200),
+            "A_3_offer": (3, 130),
             "B": (2, 45)
 
         }
@@ -48,6 +48,7 @@ class CheckoutSolution:
                 total += count * self.prices[sku]
 
         return total
+
 
 
 
