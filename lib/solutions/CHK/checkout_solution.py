@@ -18,8 +18,9 @@ class CheckoutSolution:
     def checkout(self, skus) -> int:
         if not skus.isalpha():
             return -1
-        
 
+        total = 0
+        
 
 
 
