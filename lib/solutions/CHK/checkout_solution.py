@@ -37,10 +37,23 @@ class CheckoutSolution:
 
         total = 0
 
-        #E offer
+        #E discount
         if "E" in items and "B" in items:
-            free_bs = counter["E"] // 2
-            counter["B"] = max(0, counter["B"] - free_bs)
+            free_bs = items["E"] // 2
+            items["B"] = max(0, items["B"] - free_bs)
+
+        #A discount
+        count_a = items.get("A", 0)
+        total += (count_a // 5) * 200
+        count_a %= 5
+        total += (count_a // 3) * 130
+        count_a %= 3
+        total += count_a * self.prices["A"]
+
+        #B discount
+        count_b = items.get("B", 0)
+        total += (count_b // 2) * 45
+        count_b %
 
         for sku, count in counter.items():
             if sku not in self.prices:
@@ -56,6 +69,7 @@ class CheckoutSolution:
                 total += count * self.prices[sku]
 
         return total
+
 
 
 
