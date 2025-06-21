@@ -20,5 +20,3 @@ class TestSum():
 
     def test_boundary_sum(self):
         assert SumSolution().compute(0, 100)
-
-
