@@ -54,55 +54,37 @@ class CheckoutSolution:
             if purchased_item in items:
                 #i.e. 6 // 3 = 2 free items
                 free_qty = items[purchased_item] // offer_qty
-                if f
+                if free_item in items:
+                    if purchased_item == free_item:
+                        items[free_item] -= free_qty
+                    else:
+                        items[free_item] = max(0, items[free_item] - free_qty)
 
     #Apply discounted items
+    def apply_discount(self, items):
+        total = 0
+
+        for sku, count in items.items():
+            if sku in self.discount_items:
+                for qty, discount_price in sorted(self.discount_items[sku]):
+                    total += (count // qty) * discount_price
+                    count %= qty
+            total += count * self.prices[sku]
+
+        return total
 
     # skus = unicode string
     def checkout(self, skus) -> int:
         items = self.count_items(skus)
 
+        if not items and skus:
+            return -1
 
-        items = {}
-
-        for sku in skus:
-            if sku not in self.prices:
-                return -1
-
-
-
-        total = 0
-
-        #E discount
-        if "E" in items and "B" in items:
-            free_bs = items["E"] // 2
-            items["B"] = max(0, items["B"] - free_bs)
-
-        #A discount
-        count_a = items.get("A", 0)
-        total += (count_a // 5) * 200
-        count_a %= 5
-        total += (count_a // 3) * 130
-        count_a %= 3
-        total += count_a * self.prices["A"]
-
-        #B discount
-        count_b = items.get("B", 0)
-        total += (count_b // 2) * 45
-        count_b %= 2
-        total += count_b * self.prices["B"]
-
-        #F discount
-        if "F" in items:
-            count_f = items["F"]
-            payable_fs = count_f - (count_f // 3)
-            total += payable_fs * self.prices["F"]
-
-        #the rest
-        for sku in "CDE":
-            total += items.get(sku, 0) * self.prices[sku]
+        self.apply_free_items(items)
+        total = self.apply_discount(items)
 
         return total
+
 
 
 
