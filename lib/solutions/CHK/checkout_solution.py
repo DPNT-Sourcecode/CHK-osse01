@@ -31,11 +31,13 @@ class CheckoutSolution:
                 qty, new_price = self.offers[sku]
                 num_of_offers = count // qty
                 remainder = count % qty
-                total += num_of_offers * new_price + remainder * self.prices[sku]
+                total += num_of_offers * new_price
+                total += remainder * self.prices[sku]
             else:
                 total += count * self.prices[sku]
 
-            return total
+        return total
+
 
 
 
