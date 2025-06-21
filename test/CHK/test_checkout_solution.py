@@ -6,7 +6,7 @@ class TestCheckoutSolution:
         basket = CheckoutSolution()
 
         #neg check
-        #assert basket.checkout("-1") == -1
+        assert basket.checkout("-1") == -1
 
         #test indv items
         assert basket.checkout("") == 0
@@ -14,8 +14,8 @@ class TestCheckoutSolution:
         assert basket.checkout("B") == 30
         assert basket.checkout("C") == 20
         assert basket.checkout("D") == 15
-        assert basket.checkout("E") == 15
-        assert basket.checkout("F") == 15
+        assert basket.checkout("E") == 40
+        assert basket.checkout("F") == 10
         assert basket.checkout("G") == 20
         assert basket.checkout("H") == 10
         assert basket.checkout("I") == 35
@@ -99,6 +99,7 @@ class TestCheckoutSolution:
         #V offers
         assert basket.checkout("VV") == 90
         assert basket.checkout("VVV") == 130
+
 
 
 

@@ -50,7 +50,7 @@ class CheckoutSolution:
 
     #Apply free items first
     def apply_free_items(self, items):
-        for purchased_item, (free_item, offer_qty) in self.free_items:
+        for purchased_item, (free_item, offer_qty) in self.free_items.items():
             if purchased_item in items:
                 #i.e. 6 // 3 = 2 free items
                 free_qty = items[purchased_item] // offer_qty
@@ -77,13 +77,16 @@ class CheckoutSolution:
     def checkout(self, skus) -> int:
         items = self.count_items(skus)
 
-        if not items and skus:
+        if items == -1:
             return -1
+        elif not skus:
+            return 0
 
         self.apply_free_items(items)
         total = self.apply_discount(items)
 
         return total
+
 
 
 
