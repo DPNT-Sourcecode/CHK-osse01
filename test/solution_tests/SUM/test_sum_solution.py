@@ -8,6 +8,6 @@ class TestSum():
 
     def test_range(self):
         with pytest.raises(Exception, match="Sorry, number must be between 0 and 100"):
-            SumSolution().compute(1,-99)
+            SumSolution().compute(1,99)
 
 
