@@ -23,5 +23,6 @@ class TestCheckoutSolution:
 
         #test sum
         assert basket.checkout("ABCD") == 50 + 30 + 20 + 15
+
         #test two offers
         assert basket.checkout("AAABBCD") == 130 + 45 + 20 + 15
