@@ -105,4 +105,11 @@ class TestCheckoutSolution:
         assert basket.checkout("VV") == 90
         assert basket.checkout("VVV") == 130
 
+        #Group offers
+        assert basket.checkout("STX") == 45
+        assert basket.checkout("XYZ") == 45
+        assert basket.checkout("TYY") == 45
+        assert basket.checkout("STXZZ") == 45 + 42
+
+
 

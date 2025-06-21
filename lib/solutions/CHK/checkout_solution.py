@@ -8,8 +8,8 @@ class CheckoutSolution:
             "A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10,
             "G": 20, "H": 10, "I": 35, "J": 60, "K": 80, "L": 90,
             "M": 15, "N": 40, "O": 10, "P": 50, "Q": 30, "R": 50,
-            "S": 30, "T": 20, "U": 40, "V": 50, "W": 20, "X": 90,
-            "Y": 10, "Z": 50
+            "S": 20, "T": 20, "U": 40, "V": 50, "W": 20, "X": 17,
+            "Y": 20, "Z": 21
         }
 
         self.free_items = {
@@ -29,6 +29,10 @@ class CheckoutSolution:
             "Q": [(3, 80)],
             "V": [(3, 130), (2, 90)]
         }
+
+        self.group_items = ["S", "T", "X", "Y", "Z"]
+        self.group_price = 45
+        self.group_size = 3
 
     #Count
     def count_items(self, skus):
@@ -73,6 +77,10 @@ class CheckoutSolution:
 
         return total
 
+    #Apply group offer
+    def apply_group_items(self, items):
+        return None
+
     # skus = unicode string
     def checkout(self, skus) -> int:
         items = self.count_items(skus)
@@ -86,6 +94,7 @@ class CheckoutSolution:
         total = self.apply_discount(items)
 
         return total
+
 
 
 
