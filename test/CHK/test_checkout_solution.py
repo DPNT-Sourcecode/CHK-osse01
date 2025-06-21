@@ -16,27 +16,26 @@ class TestCheckoutSolution:
         assert basket.checkout("D") == 15
         assert basket.checkout("E") == 15
         assert basket.checkout("F") == 15
-        assert basket.checkout("G") == 15
-        assert basket.checkout("H") == 15
-        assert basket.checkout("I") == 15
-        assert basket.checkout("J") == 15
-        assert basket.checkout("K") == 15
-        assert basket.checkout("L") == 15
+        assert basket.checkout("G") == 20
+        assert basket.checkout("H") == 10
+        assert basket.checkout("I") == 35
+        assert basket.checkout("J") == 60
+        assert basket.checkout("K") == 80
+        assert basket.checkout("L") == 90
         assert basket.checkout("M") == 15
-        assert basket.checkout("N") == 15
-        assert basket.checkout("O") == 15
-        assert basket.checkout("P") == 15
-        assert basket.checkout("Q") == 15
-        assert basket.checkout("R") == 15
-        assert basket.checkout("S") == 15
-        assert basket.checkout("T") == 15
-        assert basket.checkout("U") == 15
-        assert basket.checkout("V") == 15
-        assert basket.checkout("W") == 15
-        assert basket.checkout("X") == 15
-        assert basket.checkout("Y") == 15
-        assert basket.checkout("Z") == 15
-
+        assert basket.checkout("N") == 40
+        assert basket.checkout("O") == 10
+        assert basket.checkout("P") == 50
+        assert basket.checkout("Q") == 30
+        assert basket.checkout("R") == 50
+        assert basket.checkout("S") == 30
+        assert basket.checkout("T") == 20
+        assert basket.checkout("U") == 40
+        assert basket.checkout("V") == 50
+        assert basket.checkout("W") == 20
+        assert basket.checkout("X") == 90
+        assert basket.checkout("Y") == 10
+        assert basket.checkout("Z") == 50
 
         #test A offers
         assert basket.checkout("AAA") == 130
@@ -100,5 +99,6 @@ class TestCheckoutSolution:
         #V offers
         assert basket.checkout("VV") == 90
         assert basket.checkout("VVV") == 130
+
 
 
