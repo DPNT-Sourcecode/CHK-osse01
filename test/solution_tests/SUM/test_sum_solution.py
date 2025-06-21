@@ -6,9 +6,8 @@ class TestSum():
     def test_sum(self):
         assert SumSolution().compute(1, 2) == 3
 
-    def test_negative_int(self):
-        with pytest.raises(Exception):
-            SumSolution().compute(1,99)
-            raise Exception("Sorry, number must be between 0 and 100")
+    def test_range(self):
+        with pytest.raises(Exception, match="Sorry, number must be between 0 and 100"):
+            SumSolution().compute(1,-99)
 
 
