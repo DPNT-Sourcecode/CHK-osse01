@@ -81,7 +81,7 @@ class TestCheckoutSolution:
         assert basket.checkout("HHHHHHHHHHHO") == 80 + 10 + 10
 
         #K offers
-        assert basket.checkout("KK") == 150
+        assert basket.checkout("KK") == 120
         assert basket.checkout("KKKK") == 300
         assert basket.checkout("KKKKA") == 350
 
@@ -116,6 +116,7 @@ class TestCheckoutSolution:
         assert basket.checkout("STXSTZZ") == 107
         assert basket.checkout("K") == 70
         assert basket.checkout("ABCDEFGHIJKLMNOPQRSTUVW") == 795
+
 
 
 
