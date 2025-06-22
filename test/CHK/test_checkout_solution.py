@@ -115,5 +115,3 @@ class TestCheckoutSolution:
         assert basket.checkout("STXSTZZ") == 82
 
 
-
-
