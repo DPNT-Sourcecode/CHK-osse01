@@ -75,10 +75,15 @@ class CheckoutSolution:
         groups = total_group_items // self.group_size
 
         if groups > 0:
+            total += groups * self.group_price
+            remaining = groups * self.group_size
 
-
-        #then calculate how we have, how many remaining
-        #remove them from the basket and obvs expensive one first
+            for sku in sorted(group_count, key=lambda x: self.prices[x], reverse=True):
+                items_to_apply = min(remaining, items.get(sku, 0))
+                items[sku] -= items_to_apply
+                remaining -= items_to_apply
+                if remaining == 0:
+                    break
 
         return total
 
@@ -109,6 +114,7 @@ class CheckoutSolution:
         total += self.apply_discount(items)
 
         return total
+
 
 
 
