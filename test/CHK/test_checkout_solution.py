@@ -33,14 +33,14 @@ class TestCheckoutSolution:
         assert basket.checkout("P") == 50
         assert basket.checkout("Q") == 30
         assert basket.checkout("R") == 50
-        assert basket.checkout("S") == 30
+        assert basket.checkout("S") == 20
         assert basket.checkout("T") == 20
         assert basket.checkout("U") == 40
         assert basket.checkout("V") == 50
         assert basket.checkout("W") == 20
-        assert basket.checkout("X") == 90
-        assert basket.checkout("Y") == 10
-        assert basket.checkout("Z") == 50
+        assert basket.checkout("X") == 17
+        assert basket.checkout("Y") == 20
+        assert basket.checkout("Z") == 21
 
         #test A offers
         assert basket.checkout("AAA") == 130
@@ -111,6 +111,8 @@ class TestCheckoutSolution:
         assert basket.checkout("TYY") == 45
         assert basket.checkout("STXZZ") == 45 + 42
         assert basket.checkout("STXSTX") == 90
+        assert basket.checkout("STXYS") == 82
+        assert basket.checkout("STXSTZZ") == 82
 
 
 
