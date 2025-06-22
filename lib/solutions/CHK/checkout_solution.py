@@ -64,6 +64,24 @@ class CheckoutSolution:
                     free_qty = items[purchased_item] // offer_qty
                     items[free_item] = max(0, items[free_item] - free_qty)
 
+    #Apply group items
+    def apply_group_items(self, items):
+        total = 0
+        group_count = {}
+        for sku in self.group_items:
+            group_count[sku] = items.get(sku, 0)
+
+        total_group_items = sum(group_count.values())
+        groups = total_group_items // self.group_size
+
+        if groups > 0:
+
+
+        #then calculate how we have, how many remaining
+        #remove them from the basket and obvs expensive one first
+
+        return total
+
     #Apply discounted items
     def apply_discount(self, items):
         total = 0
@@ -77,10 +95,6 @@ class CheckoutSolution:
 
         return total
 
-    #Apply group offer
-    def apply_group_items(self, items):
-        return None
-
     # skus = unicode string
     def checkout(self, skus) -> int:
         items = self.count_items(skus)
@@ -91,9 +105,11 @@ class CheckoutSolution:
             return 0
 
         self.apply_free_items(items)
-        total = self.apply_discount(items)
+        total = self.apply_group_items(items)
+        total += self.apply_discount(items)
 
         return total
+
 
 
 
