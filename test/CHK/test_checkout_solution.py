@@ -112,4 +112,3 @@ class TestCheckoutSolution:
         assert basket.checkout("STXZZ") == 45 + 42
 
 
-
