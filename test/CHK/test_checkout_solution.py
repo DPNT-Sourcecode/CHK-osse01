@@ -110,5 +110,8 @@ class TestCheckoutSolution:
         assert basket.checkout("XYZ") == 45
         assert basket.checkout("TYY") == 45
         assert basket.checkout("STXZZ") == 45 + 42
+        assert basket.checkout("STXSTX") == 90
+
+
 
 
