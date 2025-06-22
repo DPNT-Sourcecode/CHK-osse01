@@ -109,10 +109,11 @@ class TestCheckoutSolution:
         assert basket.checkout("STX") == 45
         assert basket.checkout("XYZ") == 45
         assert basket.checkout("TYY") == 45
-        assert basket.checkout("STXZZ") == 45 + 20 + 17
+        assert basket.checkout("STXZZ") == 82
         assert basket.checkout("STXSTX") == 90
         assert basket.checkout("STXYS") == 82
-        assert basket.checkout("STXSTZZ") == 82
+        assert basket.checkout("STXSTZZ") == 107
+
 
 
 
