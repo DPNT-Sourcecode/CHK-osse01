@@ -80,10 +80,11 @@ class CheckoutSolution:
 
             for sku in sorted(group_count, key=lambda x: self.prices[x], reverse=True):
                 items_to_apply = min(remaining, items.get(sku, 0))
-                items[sku] -= items_to_apply
-                remaining -= items_to_apply
-                if remaining == 0:
-                    break
+                if sku in items:
+                    items[sku] -= items_to_apply
+                    remaining -= items_to_apply
+                    if remaining == 0:
+                        break
 
         return total
 
@@ -114,6 +115,7 @@ class CheckoutSolution:
         total += self.apply_discount(items)
 
         return total
+
 
 
 
