@@ -5,7 +5,8 @@ class TestCheckoutSolution:
     def test_indv_cases(self):
         basket = CheckoutSolution()
 
-        assert basket.checkout("STX") == 45
+        assert basket.checkout("K") == 70
+        assert basket.checkout("ABCDEFGHIJKLMNOPQRSTUVW") == 795
 
     def test_multiple_basket_cases(self):
         basket = CheckoutSolution()
@@ -25,7 +26,7 @@ class TestCheckoutSolution:
         assert basket.checkout("H") == 10
         assert basket.checkout("I") == 35
         assert basket.checkout("J") == 60
-        assert basket.checkout("K") == 80
+        assert basket.checkout("K") == 70
         assert basket.checkout("L") == 90
         assert basket.checkout("M") == 15
         assert basket.checkout("N") == 40
@@ -113,6 +114,9 @@ class TestCheckoutSolution:
         assert basket.checkout("STXSTX") == 90
         assert basket.checkout("STXYS") == 82
         assert basket.checkout("STXSTZZ") == 107
+        assert basket.checkout("K") == 70
+        assert basket.checkout("ABCDEFGHIJKLMNOPQRSTUVW") == 795
+
 
 
 
